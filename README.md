@@ -147,19 +147,22 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 ## Priority Matrix
 
-![priority](PokeCard-Info/assets/priorityMatrix.png)
+![priority](https://git.generalassemb.ly/craignavarro/PokeCard-Info/blob/master/assets/priorityMatrix.png)
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day. Students usally put in around 40+ hours into their project 1.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| HTML | M | 3hrs|  |  |
+| Working with first API | H | 3hrs|  | |
+| Working with second API | H | 3hrs| |  |
+|JS Code for API integration| H | 4hrs| | |
+|JS Code for website interactions | H | 5hrs | | |
+|CSS Styling | M | 6hrs | | |
+|Debugging/Optimization | M | 6hrs | | |
+|Refactoring | L | 4hrs | | |
+|Total | | 34hrs | | |
 
 ## Code Snippet
 
