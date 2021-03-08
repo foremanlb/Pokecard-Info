@@ -128,21 +128,26 @@ I will be using the Pokemon TCG Developers API.  https://docs.pokemontcg.io/
 The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
-
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Built with HTML, CSS, and JavaScript.
+- Styled using Flexbox or Grid.
+- Use Axios to make a request to an external data source and insert some of the retrieved data on to the DOM.
+- Use of Sets API to create and implement drop down.
+- Implement a toggling search bar and drop down bar, based on which button is pressed by user.
+- Design so that search buttons and parameters remain stationary to allow to search again with out scrolling all the way up, without intruding on the given info on the cards.
+- Implement responsive design using at least one media query/breakpoint (i.e. desktop, tablet, mobile, etc.)
+- Deployed site to a hosting service like Github Pages.
+- make commits to GitHub every day.
+- a README.md file that contains your project worksheet, a link to your live, deployed site, and any necessary installation instructions such as npm i.
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
-
-- Add second API
-- Use local storage to save user favorites
+- Use local storage to be able to create a collections list.
+- Implement higher styling to create a crisper experience for users.
+- Create a network for collectors to communicate and offer up trades of cards in their collections to others.
+- Allow for photos to be uploaded, allowing for showing off of card collections and verification of ownership for trades.
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+![priority](PokeCard-Info/assets/priorityMatrix.png)
 
 ## Timeframes
 
