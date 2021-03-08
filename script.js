@@ -5,6 +5,7 @@ const code = '81ef3d57-7b3c-4e91-9eb6-81cb3adbfb06'
 const nav = document.querySelector('nav')
 const pokemon = document.querySelector('#pokemon')
 const set = document.querySelector('#set')
+const main = document.querySelector('main')
 
 async function getPokemon() {
   try {
@@ -13,10 +14,10 @@ async function getPokemon() {
       headers: {
         'X-Api-Key': `${code}`
       }
-    })
-    // console.log(pokemon.data)
+      })
+    console.log(pokemon.data.data)
+    generateCards(pokemon.data.data)
   } catch (error) {
-    // console.log(error.message)
   }
 }
 
@@ -29,11 +30,35 @@ async function getSet() {
           'X-Api-Key': `${code}`
         }
     })
-    // console.log(sets.data.data)
     populateDropDown(sets.data.data)
   } catch (error) {
     console.log(error.message)
   }
+}
+
+pokemon.addEventListener('click', searchGenerate)
+
+set.addEventListener('click', dropDownGenerate)
+
+function removeInput() {
+  const navList = nav.childNodes
+  while (navList.length > 4) {
+    nav.removeChild(nav.lastChild)
+  }
+}
+
+function dropDownGenerate() {
+  removeInput()
+  createDropDown()
+}
+
+function createDropDown() {
+  const drop = document.createElement('select')
+  const value = document.createElement('option')
+  value.innerText = 'Please Choose Set'
+  nav.appendChild(drop)
+  drop.appendChild(value)
+  getSet()
 }
 
 function populateDropDown(sets) {
@@ -50,17 +75,6 @@ function searchGenerate() {
   createSearch()
 }
 
-function removeInput() {
-  const navList = nav.childNodes
-  // console.log(navList)
-  while (navList.length > 4) {
-    nav.removeChild(nav.lastChild)
-  }
-  // console.log(navList)
-}
-
-pokemon.addEventListener('click', searchGenerate)
-
 function createSearch() {
   const search = document.createElement('input')
   search.setAttribute('type', 'search')
@@ -68,18 +82,22 @@ function createSearch() {
   nav.appendChild(search)
 }
 
-set.addEventListener('click', dropDownGenerate)
-
-function createDropDown() {
-  const drop = document.createElement('select')
-  const value = document.createElement('option')
-  value.innerText = 'Please Choose Set'
-  nav.appendChild(drop)
-  drop.appendChild(value)
-  getSet()
+function generateCards(list) {
+  list.forEach((card) => {
+    createDiv()
+    displayCard(card)
+  })
 }
 
-function dropDownGenerate() {
-  removeInput()
-  createDropDown()
+function createDiv() {
+  const div = document.createElement('div')
+  main.appendChild(div)
 }
+
+function displayCard(card) {
+  const face = document.createElement('img')
+  face.src = `${card.images.large}`
+  const div = document.querySelector('div')
+  div.appendChild(face)
+}
+
