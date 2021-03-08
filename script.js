@@ -15,7 +15,7 @@ async function getPokemon() {
         'X-Api-Key': `${code}`
       }
       })
-    // console.log(pokemon.data.data)
+    console.log(pokemon.data.data)
     generateCards(pokemon.data.data)
   } catch (error) {
   }
@@ -91,7 +91,7 @@ function generateCards(list) {
     displayFlavor(card)
     displayAbilities(card)
     displayAttacks(card)
-    // displayWeakness(card)
+    displayWeakness(card)
     // displayResistance(card)
     // displayRetreat(card)
     // displayRarity(card)
@@ -147,7 +147,6 @@ function displayAbilities(card) {
 
 function displayAttacks(card) {
   const attacks = card.attacks
-  console.log(attacks)
   for (let i = 0; i < attacks.length; i++) {
     const attack = document.createElement('p')
     attack.innerText = `Attack: ${attacks[i].name} 
@@ -156,6 +155,16 @@ function displayAttacks(card) {
     Info: ${attacks[i].text}`
     const div = document.querySelector(`#${card.id}`)
     div.appendChild(attack)
+  }
+}
+
+function displayWeakness(card) {
+  const weak = card.weaknesses
+  for (let i = 0; i < weak.length; i++) {
+    const weakness = document.createElement('p')
+    weakness.innerText = `Weakness ${weak[i].type} ${weak[i].value}`
+    const div = document.querySelector(`#${card.id}`)
+    div.appendChild(weakness)
   }
 }
 
