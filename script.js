@@ -15,7 +15,7 @@ async function getPokemon() {
         'X-Api-Key': `${code}`
       }
       })
-    console.log(pokemon.data.data)
+    // console.log(pokemon.data.data)
     generateCards(pokemon.data.data)
   } catch (error) {
   }
@@ -89,6 +89,14 @@ function generateCards(list) {
     displayName(card)
     displaySet(card)
     displayFlavor(card)
+    displayAbilities(card)
+    displayAttacks(card)
+    // displayWeakness(card)
+    // displayResistance(card)
+    // displayRetreat(card)
+    // displayRarity(card)
+    // displayNumber(card)
+    // displayLink(card)
   })
 }
 
@@ -127,4 +135,28 @@ function displayFlavor(card) {
   div.appendChild(flavor)
   }
 }
+
+function displayAbilities(card) {
+  if (card.abilities != undefined) {
+    const ability = document.createElement('p')
+    ability.innerText = `Ability: ${card.abilities[0].name}: ${card.abilities[0].text}`
+    const div = document.querySelector(`#${card.id}`)
+    div.appendChild(ability)
+  }
+}
+
+function displayAttacks(card) {
+  const attacks = card.attacks
+  console.log(attacks)
+  for (let i = 0; i < attacks.length; i++) {
+    const attack = document.createElement('p')
+    attack.innerText = `Attack: ${attacks[i].name} 
+    Cost: ${attacks[i].cost} 
+    Damage: ${attacks[i].damage}
+    Info: ${attacks[i].text}`
+    const div = document.querySelector(`#${card.id}`)
+    div.appendChild(attack)
+  }
+}
+
 getPokemon()
