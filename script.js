@@ -86,11 +86,9 @@ function generateCards(list) {
   list.forEach((card) => {
     createDiv(card)
     displayCard(card)
-    // const div = document.createElement('div')
-    // main.appendChild(div)
-    // const face = document.createElement('img')
-    // face.src = `${card.images.large}`
-    // div.appendChild(face)
+    displayName(card)
+    displaySet(card)
+    displayFlavor(card)
   })
 }
 
@@ -103,9 +101,30 @@ function createDiv(card) {
 function displayCard(card) {
   const face = document.createElement('img')
   face.src = `${card.images.large}`
-  face.setAttribute('class', 'cardFace')
   const div = document.querySelector(`#${card.id}`)
   div.appendChild(face)
 }
 
+function displayName(card) {
+  const name = document.createElement('h3')
+  name.innerText = `Name: ${card.name}`
+  const div = document.querySelector(`#${card.id}`)
+  div.appendChild(name)
+}
+
+function displaySet(card) {
+  const set = document.createElement('p')
+  set.innerText = `Set: ${card.set.name}`
+  const div = document.querySelector(`#${card.id}`)
+  div.appendChild(set)
+}
+
+function displayFlavor(card) {
+  if (card.flavorText != undefined) {
+  const flavor = document.createElement('p')
+  flavor.innerText = `${card.flavorText}`
+  const div = document.querySelector(`#${card.id}`)
+  div.appendChild(flavor)
+  }
+}
 getPokemon()
