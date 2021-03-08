@@ -84,20 +84,28 @@ function createSearch() {
 
 function generateCards(list) {
   list.forEach((card) => {
-    createDiv()
+    createDiv(card)
     displayCard(card)
+    // const div = document.createElement('div')
+    // main.appendChild(div)
+    // const face = document.createElement('img')
+    // face.src = `${card.images.large}`
+    // div.appendChild(face)
   })
 }
 
-function createDiv() {
+function createDiv(card) {
   const div = document.createElement('div')
+  div.setAttribute('id', `${card.id}`)
   main.appendChild(div)
 }
 
 function displayCard(card) {
   const face = document.createElement('img')
   face.src = `${card.images.large}`
-  const div = document.querySelector('div')
+  face.setAttribute('class', 'cardFace')
+  const div = document.querySelector(`#${card.id}`)
   div.appendChild(face)
 }
 
+getPokemon()
