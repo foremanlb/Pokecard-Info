@@ -3,6 +3,8 @@ const pokemonName = 'charizard'
 const cardSearchURL = `https://api.pokemontcg.io/v2/cards?q=name:`
 const code = '81ef3d57-7b3c-4e91-9eb6-81cb3adbfb06'
 const nav = document.querySelector('nav')
+const pokemon = document.querySelector('#pokemon')
+const set = document.querySelector('#set')
 
 async function getPokemon() {
   try {
@@ -31,7 +33,8 @@ async function getSet() {
 }
 
 function searchGenerate() {
-
+  removeInput()
+  createSearch()
 }
 
 function removeInput() {
@@ -41,4 +44,13 @@ function removeInput() {
     nav.removeChild(nav.lastChild)
   }
   console.log(navList)
+}
+
+pokemon.addEventListener('click', searchGenerate)
+
+function createSearch() {
+  const search = document.createElement('input')
+  search.setAttribute('type', 'search')
+  search.setAttribute('placeholder', 'Pokemon')
+  nav.appendChild(search)
 }
