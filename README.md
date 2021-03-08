@@ -121,7 +121,7 @@ I will be using the Pokemon TCG Developers API.  https://docs.pokemontcg.io/
 
 ## Wireframes
 
-![](assets/wireframe.png)
+![Alt text](PokeCard-Info/assets/wireframe.png?raw=true)
 
 ### MVP/PostMVP
 
