@@ -54,3 +54,19 @@ function createSearch() {
   search.setAttribute('placeholder', 'Pokemon')
   nav.appendChild(search)
 }
+
+set.addEventListener('click', dropDownGenerate)
+
+function createDropDown() {
+  const drop = document.createElement('select')
+  const value = document.createElement('option')
+  value.innerText = 'Please Choose Set'
+  nav.appendChild(drop)
+  drop.appendChild(value)
+}
+
+function dropDownGenerate() {
+  removeInput()
+  createDropDown()
+}
+
