@@ -9,27 +9,40 @@ const set = document.querySelector('#set')
 async function getPokemon() {
   try {
     const pokemon = await axios.get(`${cardSearchURL}${pokemonName}` ,
+    {
+      headers: {
+        'X-Api-Key': `${code}`
+      }
+    })
+    // console.log(pokemon.data)
+  } catch (error) {
+    // console.log(error.message)
+  }
+}
+
+async function getSet() {
+  // const setList = []
+  try {
+    const sets = await axios.get(`${setSearchURL}` ,
       {
         headers: {
           'X-Api-Key': `${code}`
         }
     })
-    console.log(pokemon.data)
+    // console.log(sets.data.data)
+    populateDropDown(sets.data.data)
   } catch (error) {
     console.log(error.message)
   }
 }
 
-async function getSet() {
-  try {
-    const sets = await axios.get(`${setSearchURL}` ,
-      {
-      'X-Api-Key': `${code}`
-    })
-    console.log(sets.data.data)
-  } catch (error) {
-    console.log(error.message)
-  }
+function populateDropDown(sets) {
+  const down = document.querySelector('select')
+  sets.forEach((set) => {
+    const opt = document.createElement('option')
+    opt.innerText = `${set.name}`
+    down.appendChild(opt)
+  })
 }
 
 function searchGenerate() {
@@ -39,11 +52,11 @@ function searchGenerate() {
 
 function removeInput() {
   const navList = nav.childNodes
-  console.log(navList)
+  // console.log(navList)
   while (navList.length > 4) {
     nav.removeChild(nav.lastChild)
   }
-  console.log(navList)
+  // console.log(navList)
 }
 
 pokemon.addEventListener('click', searchGenerate)
@@ -63,10 +76,10 @@ function createDropDown() {
   value.innerText = 'Please Choose Set'
   nav.appendChild(drop)
   drop.appendChild(value)
+  getSet()
 }
 
 function dropDownGenerate() {
   removeInput()
   createDropDown()
 }
-
