@@ -73,13 +73,22 @@ function populateDropDown(sets) {
 function searchGenerate() {
   removeInput()
   createSearch()
+  createSubmit()
 }
 
 function createSearch() {
   const search = document.createElement('input')
   search.setAttribute('type', 'search')
   search.setAttribute('placeholder', 'Pokemon')
+  search.setAttribute('id', 'search')
   nav.appendChild(search)
+}
+
+function createSubmit() {
+  const submit = document.createElement('input')
+  submit.setAttribute('type', 'submit')
+  submit.setAttribute('id', 'submit')
+  nav.appendChild(submit)
 }
 
 function generateCards(list) {
@@ -230,5 +239,3 @@ function displayLink(card) {
   div.appendChild(link)
   link.appendChild(hyperlink)
 }
-
-getPokemon()
