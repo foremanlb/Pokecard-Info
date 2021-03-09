@@ -69,6 +69,7 @@ function dropDownGenerate() {
 function createDropDown() {
   const drop = document.createElement('select')
   const value = document.createElement('option')
+  drop.setAttribute('id', 'search')
   value.innerText = 'Please Choose Set'
   form.appendChild(drop)
   drop.appendChild(value)

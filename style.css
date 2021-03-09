@@ -17,7 +17,7 @@ html {
 }
 
 header {
-  background-color: red;
+  background: linear-gradient(rgb(244, 204, 204), rgb(255, 0, 0));
   position: sticky;
   margin: 0;
   top: 0;
@@ -27,6 +27,10 @@ header {
   align-items: center;
   flex-direction: column;
   grid-column: 1 / span 3;
+  background-image: url('assets/headBack.png');
+  background-position: center center;
+  background-size: contain;
+  /* /* background-attachment: fixed; */
 }
 
 h1 {
@@ -43,13 +47,25 @@ nav {
   top: 20vh;
   height: 80vh;
   width: 200px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  /* background-image: url('assets/pokeBack2.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed; */
 }
 
 main {
-  background-image: url('assets/pokeBack.jpg');
   grid-column: 2/ span 3;
+  /* background-image: url('assets/pokeBack2.jpg');
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 80vh;
+  min-height: 80vh; */
+}
+
+form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 80vh
 }
