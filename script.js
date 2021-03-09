@@ -16,7 +16,7 @@ async function getPokemon(name) {
       })
     generateCards(poke.data.data)
   } catch (error) {
-    console.log(error.message)
+    alert('Pokemon Card does not exist.')
   }
 }
 
@@ -69,8 +69,8 @@ function dropDownGenerate() {
 function createDropDown() {
   const drop = document.createElement('select')
   const value = document.createElement('option')
-  drop.setAttribute('id', 'search')
-  value.innerText = 'Please Choose Set'
+  drop.setAttribute('id', 'setList')
+  value.innerText = 'Choose Set'
   form.appendChild(drop)
   drop.appendChild(value)
   getSet()
@@ -157,6 +157,7 @@ function createDiv(card) {
 function displayCard(card) {
   const face = document.createElement('img')
   face.src = `${card.images.large}`
+  face.setAttribute('class', 'card')
   const div = document.querySelector(`#${card.id}`)
   div.appendChild(face)
 }
@@ -164,6 +165,7 @@ function displayCard(card) {
 function createDiv2(card) {
   const div2 = document.createElement('div')
   div2.setAttribute('id', `${card.id}-2`)
+  div2.setAttribute('class', 'cardDetails')
   main.appendChild(div2)
 }
 

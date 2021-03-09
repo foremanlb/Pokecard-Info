@@ -1,6 +1,7 @@
 img {
-  height: 400px;
-  width: auto;
+  height: auto;
+  width: 29vw;
+  max-width: 350px;
 }
 
 body {
@@ -29,8 +30,7 @@ header {
   grid-column: 1 / span 3;
   background-image: url('assets/headBack.png');
   background-position: center center;
-  background-size: contain;
-  /* /* background-attachment: fixed; */
+  background-size: cover;
 }
 
 h1 {
@@ -49,23 +49,60 @@ nav {
   width: 200px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  /* background-image: url('assets/pokeBack2.jpg');
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed; */
 }
 
 main {
   grid-column: 2/ span 3;
-  /* background-image: url('assets/pokeBack2.jpg');
-  background-position: center center;
+  background-image: url('assets/pokeBack2.png');
   background-size: cover;
   background-attachment: fixed;
-  min-height: 80vh; */
+  min-height: 60vh;
+  display: grid;
+  grid-template-columns: 29vw 50vw;
 }
 
 form {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  height: 80vh
+  height: 80vh;
+  justify-items: center;
+  align-items: center;
+}
+
+#pokemon {
+  height: 30px;
+  width: 140px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#set {
+  height: 30px;
+  width: 140px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#search {
+  height: 30px;
+  width: 140px;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+#submit {
+  height: 30px;
+  width: 140px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#setList {
+  height: 30px;
+  width: 140px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+}
+
+.cardDetails {
+  background-color: rgba(41, 35, 35, 0.797);
+  color: white;
+  width: 50vw;
 }
