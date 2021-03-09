@@ -6,6 +6,10 @@ img {
 body {
   padding: 0;
   margin: 0;
+  display:grid;
+  grid-template-rows: 20vh 100%;
+  grid-template-columns: 200px 1fr;
+  overflow: visible;
 }
 
 html {
@@ -13,18 +17,39 @@ html {
 }
 
 header {
-  background-color: blue;
+  background-color: red;
   position: sticky;
   margin: 0;
   top: 0;
-  height: 100px;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  grid-column: 1 / span 3;
 }
 
 h1 {
   margin: 0;
   text-align: center;
+  font-family: 'Luckiest Guy', cursive;
+  color:yellow;
+  text-shadow: 0 0 15px blue, 0 0 15px blue;
+}
+
+nav {
+  background-color: blue;
+  position: fixed;
+  top: 20vh;
+  height: 80vh;
+  width: 200px;
+}
+
+main {
+  background-image: url('assets/pokeBack.jpg');
+  grid-column: 2/ span 3;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 80vh;
 }

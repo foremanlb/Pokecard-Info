@@ -131,6 +131,7 @@ function generateCards(list) {
   list.forEach((card) => {
     createDiv(card)
     displayCard(card)
+    createDiv2(card)
     displayName(card)
     displaySet(card)
     displayFlavor(card)
@@ -159,17 +160,24 @@ function displayCard(card) {
   div.appendChild(face)
 }
 
+function createDiv2(card) {
+  const div2 = document.createElement('div')
+  div2.setAttribute('id', `${card.id}-2`)
+  main.appendChild(div2)
+}
+
+
 function displayName(card) {
   const name = document.createElement('h3')
   name.innerText = `Name: ${card.name}`
-  const div = document.querySelector(`#${card.id}`)
+  const div = document.querySelector(`#${card.id}-2`)
   div.appendChild(name)
 }
 
 function displaySet(card) {
   const set = document.createElement('p')
   set.innerText = `Set: ${card.set.name}`
-  const div = document.querySelector(`#${card.id}`)
+  const div = document.querySelector(`#${card.id}-2`)
   div.appendChild(set)
 }
 
@@ -177,7 +185,7 @@ function displayFlavor(card) {
   if (card.flavorText != undefined) {
   const flavor = document.createElement('p')
   flavor.innerText = `${card.flavorText}`
-  const div = document.querySelector(`#${card.id}`)
+  const div = document.querySelector(`#${card.id}-2`)
   div.appendChild(flavor)
   }
 }
@@ -186,7 +194,7 @@ function displayRules(card) {
   if (card.rules != undefined) {
   const rules = document.createElement('p')
   rules.innerText = `${card.rules}`
-  const div = document.querySelector(`#${card.id}`)
+  const div = document.querySelector(`#${card.id}-2`)
   div.appendChild(rules)
   }
 }
@@ -197,7 +205,7 @@ function displayAbilities(card) {
     for (let i = 0; i < abilities.length; i++) {
       const ability = document.createElement('p')
       ability.innerText = `Ability: ${card.abilities[i].name}: ${card.abilities[i].text}`
-      const div = document.querySelector(`#${card.id}`)
+      const div = document.querySelector(`#${card.id}-2`)
       div.appendChild(ability)
     }
   }
@@ -212,7 +220,7 @@ function displayAttacks(card) {
     Cost: ${attacks[i].cost} 
     Damage: ${attacks[i].damage}
     Info: ${attacks[i].text}`
-    const div = document.querySelector(`#${card.id}`)
+    const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(attack)
   }
 }
@@ -223,13 +231,13 @@ function displayWeakness(card) {
     for (let i = 0; i < weak.length; i++) {
       const weakness = document.createElement('p')
       weakness.innerText = `Weakness: ${weak[i].type} ${weak[i].value}`
-      const div = document.querySelector(`#${card.id}`)
+      const div = document.querySelector(`#${card.id}-2`)
       div.appendChild(weakness)
     }
   } else {
     const weakness = document.createElement('p')
     weakness.innerText = `Weakness: None`
-    const div = document.querySelector(`#${card.id}`)
+    const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(weakness)
   }
 }
@@ -240,13 +248,13 @@ function displayResistance(card) {
     for (let i = 0; i < resist.length; i++) {
       const strong = document.createElement('p')
       strong.innerText = `Resistance: ${resist[i].type} ${resist[i].value}`
-      const div = document.querySelector(`#${card.id}`)
+      const div = document.querySelector(`#${card.id}-2`)
       div.appendChild(strong)
     }
   } else {
     const strong = document.createElement('p')
     strong.innerText = `Resistance: None`
-    const div = document.querySelector(`#${card.id}`)
+    const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(strong)
   }
 }
@@ -256,12 +264,12 @@ function displayRetreat(card) {
   if (retreat != undefined) {
       const run = document.createElement('p')
       run.innerText = `Retreat Cost: ${retreat}`
-      const div = document.querySelector(`#${card.id}`)
+      const div = document.querySelector(`#${card.id}-2`)
       div.appendChild(run)
   } else {
     const run = document.createElement('p')
     run.innerText = `Retreat Cost: None`
-    const div = document.querySelector(`#${card.id}`)
+    const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(run)
   }
 }
@@ -269,14 +277,14 @@ function displayRetreat(card) {
 function displayRarity(card) {
   const rarity = document.createElement('p')
   rarity.innerText = `Rarity: ${card.rarity}`
-  const div = document.querySelector(`#${card.id}`)
+  const div = document.querySelector(`#${card.id}-2`)
   div.appendChild(rarity)
 }
 
 function displayNumber(card) {
   const num = document.createElement('p')
   num.innerText = `Number: ${card.number} out of ${card.set.printedTotal} listed/${card.set.total} actual`
-  const div = document.querySelector(`#${card.id}`)
+  const div = document.querySelector(`#${card.id}-2`)
   div.appendChild(num)
 }
 
@@ -286,7 +294,7 @@ function displayLink(card) {
     const hyperlink = document.createElement('a')
     hyperlink.innerText = `Purchasing Site`
     hyperlink.setAttribute('href', `${card.tcgplayer.url}`)
-    const div = document.querySelector(`#${card.id}`)
+    const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(link)
     link.appendChild(hyperlink)
   }
