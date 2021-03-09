@@ -1,15 +1,15 @@
 const setSearchURL = 'https://api.pokemontcg.io/v2/sets'
 const pokemonName = 'charizard'
-const cardSearchURL = `https://api.pokemontcg.io/v2/cards?q=name:`
+const cardSearchURL = `https://api.pokemontcg.io/v2/cards?q=`
 const code = '81ef3d57-7b3c-4e91-9eb6-81cb3adbfb06'
-const nav = document.querySelector('nav')
+const form = document.querySelector('form')
 const pokemon = document.querySelector('#pokemon')
 const set = document.querySelector('#set')
 const main = document.querySelector('main')
 
-async function getPokemon() {
+async function getPokemon(name) {
   try {
-    const pokemon = await axios.get(`${cardSearchURL}${pokemonName}` ,
+    const pokemon = await axios.get(`${cardSearchURL}name:${name}` ,
     {
       headers: {
         'X-Api-Key': `${code}`
@@ -40,10 +40,12 @@ pokemon.addEventListener('click', searchGenerate)
 
 set.addEventListener('click', dropDownGenerate)
 
+form.addEventListener('submit', submitSearch)
+
 function removeInput() {
-  const navList = nav.childNodes
-  while (navList.length > 4) {
-    nav.removeChild(nav.lastChild)
+  const formList = form.childNodes
+  while (formList.length > 4) {
+    form.removeChild(form.lastChild)
   }
 }
 
@@ -56,7 +58,7 @@ function createDropDown() {
   const drop = document.createElement('select')
   const value = document.createElement('option')
   value.innerText = 'Please Choose Set'
-  nav.appendChild(drop)
+  form.appendChild(drop)
   drop.appendChild(value)
   getSet()
 }
@@ -81,14 +83,22 @@ function createSearch() {
   search.setAttribute('type', 'search')
   search.setAttribute('placeholder', 'Pokemon')
   search.setAttribute('id', 'search')
-  nav.appendChild(search)
+  form.appendChild(search)
 }
 
 function createSubmit() {
   const submit = document.createElement('input')
   submit.setAttribute('type', 'submit')
   submit.setAttribute('id', 'submit')
-  nav.appendChild(submit)
+  form.appendChild(submit)
+}
+
+function submitSearch(event) {
+  event.preventDefault()
+  const search = document.querySelector('#search')
+  console.log(search.value)
+  getPokemon(search.value)
+  search.value = ''
 }
 
 function generateCards(list) {
@@ -239,3 +249,5 @@ function displayLink(card) {
   div.appendChild(link)
   link.appendChild(hyperlink)
 }
+
+// getPokemon()
