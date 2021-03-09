@@ -21,8 +21,21 @@ async function getPokemon(name) {
   }
 }
 
+async function getPokemonBySet(name) {
+  try {
+    const pokemon = await axios.get(`${cardSearchURL}set.name:${name}` ,
+    {
+      headers: {
+        'X-Api-Key': `${code}`
+      }
+      })
+    console.log(pokemon.data.data)
+    generateCards(pokemon.data.data)
+  } catch (error) {
+  }
+}
+
 async function getSet() {
-  // const setList = []
   try {
     const sets = await axios.get(`${setSearchURL}` ,
       {
@@ -61,6 +74,7 @@ function createDropDown() {
   form.appendChild(drop)
   drop.appendChild(value)
   getSet()
+  drop.addEventListener('change', findSet)
 }
 
 function populateDropDown(sets) {
@@ -95,10 +109,23 @@ function createSubmit() {
 
 function submitSearch(event) {
   event.preventDefault()
+  removeOldSearch()
   const search = document.querySelector('#search')
   console.log(search.value)
   getPokemon(search.value)
   search.value = ''
+}
+
+function findSet(event) {
+  removeOldSearch()
+  const chosenSet = event.target.value
+  getPokemonBySet(chosenSet)
+}
+
+function removeOldSearch() {
+  while (main.firstChild) {
+    main.removeChild(main.firstChild)
+  }
 }
 
 function generateCards(list) {
