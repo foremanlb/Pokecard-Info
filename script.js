@@ -15,6 +15,7 @@ async function getPokemon(name) {
         'X-Api-Key': `${code}`
       }
       })
+    console.log(poke.data.data)
     generateCards(poke.data.data)
   } catch (error) {
     console.log(error.message)
@@ -23,13 +24,14 @@ async function getPokemon(name) {
 
 async function getPokemonBySet(name) {
   try {
-    const pokemon = await axios.get(`${cardSearchURL}set.id:${name}` ,
+    const poke = await axios.get(`${cardSearchURL}set.id:${name}` ,
     {
       headers: {
         'X-Api-Key': `${code}`
       }
       })
-    generateCards(pokemon.data.data)
+    console.log(poke.data.data)
+    generateCards(poke.data.data)
   } catch (error) {
     console.log(error.message)
   }
@@ -135,6 +137,7 @@ function generateCards(list) {
     displayName(card)
     displaySet(card)
     displayFlavor(card)
+    displayRules(card)
     displayAbilities(card)
     displayAttacks(card)
     displayWeakness(card)
@@ -182,9 +185,18 @@ function displayFlavor(card) {
   }
 }
 
+function displayRules(card) {
+  if (card.rules != undefined) {
+  const rules = document.createElement('p')
+  rules.innerText = `${card.rules}`
+  const div = document.querySelector(`#${card.id}`)
+  div.appendChild(rules)
+  }
+}
+
 function displayAbilities(card) {
   const abilities = card.abilities
-  if (card.abilities != undefined) {
+  if (abilities != undefined) {
     for (let i = 0; i < abilities.length; i++) {
       const ability = document.createElement('p')
       ability.innerText = `Ability: ${card.abilities[i].name}: ${card.abilities[i].text}`
@@ -196,6 +208,7 @@ function displayAbilities(card) {
 
 function displayAttacks(card) {
   const attacks = card.attacks
+  if (attacks != undefined)
   for (let i = 0; i < attacks.length; i++) {
     const attack = document.createElement('p')
     attack.innerText = `Attack: ${attacks[i].name} 
