@@ -1,5 +1,5 @@
 const setSearchURL = 'https://api.pokemontcg.io/v2/sets'
-const pokemonName = 'charizard'
+const pokemonName = 'beedrill'
 const cardSearchURL = `https://api.pokemontcg.io/v2/cards?q=name:`
 const code = '81ef3d57-7b3c-4e91-9eb6-81cb3adbfb06'
 const nav = document.querySelector('nav')
@@ -92,10 +92,10 @@ function generateCards(list) {
     displayAbilities(card)
     displayAttacks(card)
     displayWeakness(card)
-    // displayResistance(card)
-    // displayRetreat(card)
-    // displayRarity(card)
-    // displayNumber(card)
+    displayResistance(card)
+    displayRetreat(card)
+    displayRarity(card)
+    displayNumber(card)
     // displayLink(card)
   })
 }
@@ -160,12 +160,65 @@ function displayAttacks(card) {
 
 function displayWeakness(card) {
   const weak = card.weaknesses
-  for (let i = 0; i < weak.length; i++) {
+  if (weak != undefined) {
+    for (let i = 0; i < weak.length; i++) {
+      const weakness = document.createElement('p')
+      weakness.innerText = `Weakness: ${weak[i].type} ${weak[i].value}`
+      const div = document.querySelector(`#${card.id}`)
+      div.appendChild(weakness)
+    }
+  } else {
     const weakness = document.createElement('p')
-    weakness.innerText = `Weakness ${weak[i].type} ${weak[i].value}`
+    weakness.innerText = `Weakness: None`
     const div = document.querySelector(`#${card.id}`)
     div.appendChild(weakness)
   }
+}
+
+function displayResistance(card) {
+  const resist = card.resistances
+  if (resist != undefined) {
+    for (let i = 0; i < resist.length; i++) {
+      const strong = document.createElement('p')
+      strong.innerText = `Resistance: ${resist[i].type} ${resist[i].value}`
+      const div = document.querySelector(`#${card.id}`)
+      div.appendChild(strong)
+    }
+  } else {
+    const strong = document.createElement('p')
+    strong.innerText = `Resistance: None`
+    const div = document.querySelector(`#${card.id}`)
+    div.appendChild(strong)
+  }
+}
+
+function displayRetreat(card) {
+  const retreat = card.retreatCost
+  if (retreat != undefined) {
+      const run = document.createElement('p')
+      run.innerText = `Retreat Cost: ${retreat}`
+      const div = document.querySelector(`#${card.id}`)
+      div.appendChild(run)
+  } else {
+    const run = document.createElement('p')
+    run.innerText = `Retreat Cost: None`
+    const div = document.querySelector(`#${card.id}`)
+    div.appendChild(run)
+  }
+}
+
+function displayRarity(card) {
+  const rarity = document.createElement('p')
+  rarity.innerText = `Rarity: ${card.rarity}`
+  const div = document.querySelector(`#${card.id}`)
+  div.appendChild(rarity)
+}
+
+function displayNumber(card) {
+  const num = document.createElement('p')
+  num.innerText = `Number: ${card.number} out of ${card.set.printedTotal} listed/${card.set.total} actual`
+  const div = document.querySelector(`#${card.id}`)
+  div.appendChild(num)
 }
 
 getPokemon()
