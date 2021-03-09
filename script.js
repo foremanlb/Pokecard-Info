@@ -9,29 +9,29 @@ const main = document.querySelector('main')
 
 async function getPokemon(name) {
   try {
-    const pokemon = await axios.get(`${cardSearchURL}name:${name}` ,
+    const poke = await axios.get(`${cardSearchURL}name:${name}` ,
     {
       headers: {
         'X-Api-Key': `${code}`
       }
       })
-    console.log(pokemon.data.data)
-    generateCards(pokemon.data.data)
+    generateCards(poke.data.data)
   } catch (error) {
+    console.log(error.message)
   }
 }
 
 async function getPokemonBySet(name) {
   try {
-    const pokemon = await axios.get(`${cardSearchURL}set.name:${name}` ,
+    const pokemon = await axios.get(`${cardSearchURL}set.id:${name}` ,
     {
       headers: {
         'X-Api-Key': `${code}`
       }
       })
-    console.log(pokemon.data.data)
     generateCards(pokemon.data.data)
   } catch (error) {
+    console.log(error.message)
   }
 }
 
@@ -42,7 +42,7 @@ async function getSet() {
         headers: {
           'X-Api-Key': `${code}`
         }
-    })
+      })
     populateDropDown(sets.data.data)
   } catch (error) {
     console.log(error.message)
@@ -82,6 +82,7 @@ function populateDropDown(sets) {
   sets.forEach((set) => {
     const opt = document.createElement('option')
     opt.innerText = `${set.name}`
+    opt.setAttribute('value', set.id)
     down.appendChild(opt)
   })
 }
@@ -111,7 +112,6 @@ function submitSearch(event) {
   event.preventDefault()
   removeOldSearch()
   const search = document.querySelector('#search')
-  console.log(search.value)
   getPokemon(search.value)
   search.value = ''
 }
@@ -183,11 +183,14 @@ function displayFlavor(card) {
 }
 
 function displayAbilities(card) {
+  const abilities = card.abilities
   if (card.abilities != undefined) {
-    const ability = document.createElement('p')
-    ability.innerText = `Ability: ${card.abilities[0].name}: ${card.abilities[0].text}`
-    const div = document.querySelector(`#${card.id}`)
-    div.appendChild(ability)
+    for (let i = 0; i < abilities.length; i++) {
+      const ability = document.createElement('p')
+      ability.innerText = `Ability: ${card.abilities[i].name}: ${card.abilities[i].text}`
+      const div = document.querySelector(`#${card.id}`)
+      div.appendChild(ability)
+    }
   }
 }
 
@@ -268,13 +271,13 @@ function displayNumber(card) {
 }
 
 function displayLink(card) {
-  const link = document.createElement('p')
-  const hyperlink = document.createElement('a')
-  hyperlink.innerText = `Purchasing Site`
-  hyperlink.setAttribute('href', `${card.tcgplayer.url}`)
-  const div = document.querySelector(`#${card.id}`)
-  div.appendChild(link)
-  link.appendChild(hyperlink)
+  if (card.tcgplayer != undefined) {
+    const link = document.createElement('p')
+    const hyperlink = document.createElement('a')
+    hyperlink.innerText = `Purchasing Site`
+    hyperlink.setAttribute('href', `${card.tcgplayer.url}`)
+    const div = document.querySelector(`#${card.id}`)
+    div.appendChild(link)
+    link.appendChild(hyperlink)
+  }
 }
-
-// getPokemon()
