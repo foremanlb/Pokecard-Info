@@ -1,5 +1,4 @@
 const setSearchURL = 'https://api.pokemontcg.io/v2/sets'
-const pokemonName = 'charizard'
 const cardSearchURL = `https://api.pokemontcg.io/v2/cards?q=`
 const code = '81ef3d57-7b3c-4e91-9eb6-81cb3adbfb06'
 const form = document.querySelector('form')
@@ -15,7 +14,6 @@ async function getPokemon(name) {
         'X-Api-Key': `${code}`
       }
       })
-    console.log(poke.data.data)
     generateCards(poke.data.data)
   } catch (error) {
     console.log(error.message)
@@ -30,7 +28,6 @@ async function getPokemonBySet(name) {
         'X-Api-Key': `${code}`
       }
       })
-    console.log(poke.data.data)
     generateCards(poke.data.data)
   } catch (error) {
     console.log(error.message)
