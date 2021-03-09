@@ -1,5 +1,5 @@
 const setSearchURL = 'https://api.pokemontcg.io/v2/sets'
-const pokemonName = 'beedrill'
+const pokemonName = 'charizard'
 const cardSearchURL = `https://api.pokemontcg.io/v2/cards?q=name:`
 const code = '81ef3d57-7b3c-4e91-9eb6-81cb3adbfb06'
 const nav = document.querySelector('nav')
@@ -96,7 +96,7 @@ function generateCards(list) {
     displayRetreat(card)
     displayRarity(card)
     displayNumber(card)
-    // displayLink(card)
+    displayLink(card)
   })
 }
 
@@ -219,6 +219,16 @@ function displayNumber(card) {
   num.innerText = `Number: ${card.number} out of ${card.set.printedTotal} listed/${card.set.total} actual`
   const div = document.querySelector(`#${card.id}`)
   div.appendChild(num)
+}
+
+function displayLink(card) {
+  const link = document.createElement('p')
+  const hyperlink = document.createElement('a')
+  hyperlink.innerText = `Purchasing Site`
+  hyperlink.setAttribute('href', `${card.tcgplayer.url}`)
+  const div = document.querySelector(`#${card.id}`)
+  div.appendChild(link)
+  link.appendChild(hyperlink)
 }
 
 getPokemon()
