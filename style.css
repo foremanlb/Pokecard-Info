@@ -103,32 +103,32 @@ form {
 
 .cardDetails {
   background-color: rgb(228, 198, 172);
-  /* color: white; */
   width: 35vw;
   padding: 10px;
   border: 6px ridge rgb(165, 78, 78);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   nav {
     width: 100vw;
-    height: 30px;
-    position: fixed;
+    height: 6vh;
+    position: sticky;
       top: 15vh;
   }
 
   header{
     height: 15vh;
     /* position: -webkit-sticky; */
-    position: fixed;
+    position: sticky;
       top: 0;
     width: 100vw;
   }
   
   body{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-rows: 15vh 6vh auto;
+    grid-template-columns: 100vw;
+    /* flex-wrap: wrap; */
   }
 
   form {
@@ -138,10 +138,11 @@ form {
   }
 
   main {
-    width: 100vw;
-    min-height: 80vh;
     font-size: 10px;
-    top: 500px;
+    grid-column: 1/ span 2;
+    min-height: 79vh;
+    background-color: white;
+    background-image: none;
   }
   #pokemon {
     height: 30px;
@@ -173,7 +174,12 @@ form {
     height: 30px;
     width: 80px;
     font-family: 'Noto Serif', serif;
-    font-size: 12px;
+    font-size: 11px;
   }
 
+  .cardDetails{
+    border:none;
+    background:none;
+    font-family: 'Poppins', sans-serif;
+  }
 }

@@ -28,6 +28,7 @@ async function getPokemonBySet(name) {
         'X-Api-Key': `${code}`
       }
       })
+    console.log(poke.data.data)
     generateCards(poke.data.data)
   } catch (error) {
     console.log(error.message)
@@ -145,6 +146,7 @@ function generateCards(list) {
     displayRarity(card)
     displayNumber(card)
     displayLink(card)
+    // replaceAttackIcon()
   })
 }
 
@@ -218,13 +220,29 @@ function displayAttacks(card) {
   const attacks = card.attacks
   if (attacks != undefined)
   for (let i = 0; i < attacks.length; i++) {
-    const attack = document.createElement('p')
-    attack.innerText = `Attack: ${attacks[i].name} 
-    Cost: ${attacks[i].cost} 
-    Damage: ${attacks[i].damage}
+    const attackName = document.createElement('div')
+    const attackCost = document.createElement('div')
+    const attackInfo = document.createElement('div')
+    // const img = document.createElement('img')
+    // img.src = 'assets/fire.png'
+    attackCost.setAttribute('class', 'attack')
+    attackName.innerText = `Attack: ${attacks[i].name}` 
+    // attackCost.innerHTML = img
+    attackInfo.innerText = `Damage: ${attacks[i].damage}
     Info: ${attacks[i].text}`
+    // attackName.innerText = `Attack: ${attacks[i].name}
+    // Cost: ${attacks[i].cost}
+    // Damage: ${attacks[i].damage}
+    // Info: ${attacks[i].text}`
+    console.log(attacks[i].cost)
     const div = document.querySelector(`#${card.id}-2`)
-    div.appendChild(attack)
+    div.appendChild(attackName)
+    for (let j = 0; j < attacks[i].cost.length; j++) {
+      const img = document.createElement('img')
+      img.src = 'assets/fire.png'  
+      div.appendChild(img)
+    }
+    div.appendChild(attackInfo)
   }
 }
 
@@ -302,3 +320,11 @@ function displayLink(card) {
     link.appendChild(hyperlink)
   }
 }
+
+// function replaceAttackIcon() {
+//   // const fire = document.createElement('img')
+//   // fire.src = 'assets/fire.png'
+//   const attack = document.querySelectorAll('.attack')
+//   const cost = attack.innerHTML.replaceAll(',', ', ')
+//   document.querySelector('.attack').innerHTML = cost
+// }
