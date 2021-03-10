@@ -10,7 +10,7 @@ body {
   display:grid;
   grid-template-rows: 20vh 100%;
   grid-template-columns: 200px 1fr;
-  overflow: visible;
+  overflow: auto;
 }
 
 html {
@@ -18,7 +18,6 @@ html {
 }
 
 header {
-  background: linear-gradient(rgb(244, 204, 204), rgb(255, 0, 0));
   position: sticky;
   margin: 0;
   top: 0;
@@ -47,8 +46,6 @@ nav {
   top: 20vh;
   height: 80vh;
   width: 200px;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 main {
@@ -59,6 +56,9 @@ main {
   min-height: 60vh;
   display: grid;
   grid-template-columns: 29vw 50vw;
+  grid-gap: 35px;
+  justify-items: center;
+  align-items: center;
 }
 
 form {
@@ -102,7 +102,78 @@ form {
 }
 
 .cardDetails {
-  background-color: rgba(41, 35, 35, 0.797);
-  color: white;
-  width: 50vw;
+  background-color: rgb(228, 198, 172);
+  /* color: white; */
+  width: 35vw;
+  padding: 10px;
+  border: 6px ridge rgb(165, 78, 78);
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    width: 100vw;
+    height: 30px;
+    position: fixed;
+      top: 15vh;
+  }
+
+  header{
+    height: 15vh;
+    /* position: -webkit-sticky; */
+    position: fixed;
+      top: 0;
+    width: 100vw;
+  }
+  
+  body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 30px;
+  }
+
+  main {
+    width: 100vw;
+    min-height: 80vh;
+    font-size: 10px;
+    top: 500px;
+  }
+  #pokemon {
+    height: 30px;
+    width: 80px;
+    font-family: 'Noto Serif', serif;
+    font-size:12px;
+  }
+  
+  #set {
+    height: 30px;
+    width: 80px;
+    font-family: 'Noto Serif', serif;
+  }
+  
+  #search {
+    height: 30px;
+    width: 80px;
+    font-family: 'Noto Serif', serif;
+    text-align: center;
+  }
+  
+  #submit {
+    height: 30px;
+    width: 80px;
+    font-family: 'Noto Serif', serif;
+  }
+  
+  #setList {
+    height: 30px;
+    width: 80px;
+    font-family: 'Noto Serif', serif;
+    font-size: 12px;
+  }
+
 }
