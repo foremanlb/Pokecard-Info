@@ -37,11 +37,11 @@ async function getPokemonBySet(name) {
 async function getSet() {
   try {
     const sets = await axios.get(`${setSearchURL}` ,
-      {
-        headers: {
-          'X-Api-Key': `${code}`
-        }
-      })
+    {
+      headers: {
+        'X-Api-Key': `${code}`
+      }
+    })
     populateDropDown(sets.data.data)
   } catch (error) {
     console.log(error.message)
@@ -459,11 +459,16 @@ function displayLink(card) {
   if (card.tcgplayer != undefined) {
     const link = document.createElement('p')
     const hyperlink = document.createElement('a')
-    hyperlink.innerText = `Purchasing Site`
+    const linkImage = document.createElement('img')
+    linkImage.src = 'assets/tcgLogo.png'
+    linkImage.setAttribute('class', 'link')
     hyperlink.setAttribute('href', `${card.tcgplayer.url}`)
+    hyperlink.setAttribute('class', 'link')
+    hyperlink.innerText = 'Purchase Here:'
     const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(link)
     link.appendChild(hyperlink)
+    hyperlink.appendChild(linkImage)
   }
 }
 

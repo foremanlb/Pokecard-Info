@@ -116,7 +116,7 @@ I will be using the Pokemon TCG Developers API.  https://docs.pokemontcg.io/
                     }
                 }
             }
-        },
+        }
 ```
 
 ## Wireframes
@@ -166,13 +166,73 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+This code was used to replace plain text with images of the types to more resemble how it is displayed on the card. 
 
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
+```json
+function displayAttacks(card) {
+  const attacks = card.attacks
+  if (attacks != undefined)
+  for (let i = 0; i < attacks.length; i++) {
+    const attackName = document.createElement('div')
+    const attackCost = document.createElement('div')
+    const attackInfo = document.createElement('div')
+    attackCost.setAttribute('class', 'attack')
+    attackName.innerText = `Attack: ${attacks[i].name}` 
+    attackCost.innerHTML = 'Cost:'
+    attackInfo.innerText = `Damage: ${attacks[i].damage}
+    Info: ${attacks[i].text}`
+    const div = document.querySelector(`#${card.id}-2`)
+    div.appendChild(attackName)
+    div.appendChild(attackCost)
+    for (let j = 0; j < attacks[i].cost.length; j++) {
+      const icons = createIcons()
+      switch (attacks[i].cost[j]) {
+        case 'Fire':
+          div.appendChild(icons.flame)
+          break;
+        case 'Grass':
+          div.appendChild(icons.leaf)
+          break;
+        case 'Water':
+          div.appendChild(icons.drop)
+          break;
+        case 'Lightning':
+          div.appendChild(icons.bolt)
+          break;
+        case 'Colorless':
+          div.appendChild(icons.star)
+          break;
+        case 'Psychic':
+          div.appendChild(icons.eye)
+          break;
+        case 'Fighting':
+          div.appendChild(icons.fist)
+          break;
+        case 'Fairy':
+          div.appendChild(icons.wings)
+          break;
+        case 'Dragon':
+          div.appendChild(icons.lizard)
+          break;
+        case 'Metal':
+          div.appendChild(icons.tri)
+          break;
+        case 'Darkness':
+          div.appendChild(icons.dark)
+          break;
+      }
+    }
+    div.appendChild(attackInfo)
+  }
 }
+
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+Replaced names for types with the logos to style better and more closely resemble the card itself.
+
+Changed header from red background to background image to make more appealing.
+
+Added more classes and id's to items as they were generated to assist styling choices.
+
+Added animated buttons to create more aesthetics.

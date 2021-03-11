@@ -69,36 +69,91 @@ form {
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 #pokemon {
+  outline: none;
+  border: none;
   height: 30px;
   width: 140px;
   font-family: 'Press Start 2P', cursive;
+  box-shadow:0 0 40px 40px #ff0000 inset, 0 0 0 0 #ff0000;
+  transition: all 250ms ease-in-out;
+}
+
+#pokemon:hover {
+  box-shadow: 0 0 10px 0 #ff0000 inset, 0 0 10px 5px #ff0000;
 }
 
 #set {
+  outline: none;
+  border: none;
   height: 30px;
   width: 140px;
   font-family: 'Press Start 2P', cursive;
+  box-shadow:0 0 40px 40px #ff0000 inset, 0 0 0 0 #ff0000;
+  transition: all 250ms ease-in-out;
+}
+
+#set:hover {
+  box-shadow: 0 0 10px 0 #ff0000 inset, 0 0 10px 5px #ff0000;
 }
 
 #search {
+  outline: none;
+  border: none;
   height: 30px;
   width: 140px;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
+  box-shadow:0 0 40px 40px #ff0000 inset, 0 0 0 0 #ff0000;
+  transition: all 250ms ease-in-out;
+}
+
+#search:hover {
+  box-shadow: 0 0 10px 0 #ff0000 inset, 0 0 10px 5px #ff0000;
+}
+
+::placeholder {
+  color: black;
+}
+
+:-ms-input-placeholder {
+  color: black;
+}
+
+::-ms-input-placeholder {
+  color: black;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }
 
 #submit {
+  outline: none;
+  border: none;
   height: 30px;
   width: 140px;
   font-family: 'Press Start 2P', cursive;
+  box-shadow:0 0 40px 40px #ff0000 inset, 0 0 0 0 #ff0000;
+  transition: all 250ms ease-in-out;
+}
+
+#submit:hover {
+  box-shadow: 0 0 10px 0 #ff0000 inset, 0 0 10px 5px #ff0000;
 }
 
 #setList {
+  outline: none;
+  border:none;
   height: 30px;
   width: 140px;
   font-family: 'Press Start 2P', cursive;
   font-size: 12px;
+  background-color: red;
 }
 
 .cardDetails {
@@ -106,6 +161,13 @@ form {
   width: 35vw;
   padding: 10px;
   border: 6px ridge rgb(165, 78, 78);
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+}
+
+.cardDetails .link {
+  width: 125px;
+  height: auto;
 }
 
 .cardDetails img{
