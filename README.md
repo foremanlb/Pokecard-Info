@@ -238,3 +238,5 @@ Added more classes and id's to items as they were generated to assist styling ch
 Added animated buttons to create more aesthetics.
 
 Made link open in new tab so as to not lose place on page.
+
+Added Symbols to the set names in card details to assist mobile users that can't see them on the cards.
