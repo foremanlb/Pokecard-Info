@@ -146,7 +146,6 @@ function generateCards(list) {
     displayRarity(card)
     displayNumber(card)
     displayLink(card)
-    // replaceAttackIcon()
   })
 }
 
@@ -223,24 +222,41 @@ function displayAttacks(card) {
     const attackName = document.createElement('div')
     const attackCost = document.createElement('div')
     const attackInfo = document.createElement('div')
-    // const img = document.createElement('img')
-    // img.src = 'assets/fire.png'
     attackCost.setAttribute('class', 'attack')
     attackName.innerText = `Attack: ${attacks[i].name}` 
-    // attackCost.innerHTML = img
+    attackCost.innerHTML = 'Cost:'
     attackInfo.innerText = `Damage: ${attacks[i].damage}
     Info: ${attacks[i].text}`
-    // attackName.innerText = `Attack: ${attacks[i].name}
-    // Cost: ${attacks[i].cost}
-    // Damage: ${attacks[i].damage}
-    // Info: ${attacks[i].text}`
     console.log(attacks[i].cost)
     const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(attackName)
+    div.appendChild(attackCost)
     for (let j = 0; j < attacks[i].cost.length; j++) {
-      const img = document.createElement('img')
-      img.src = 'assets/fire.png'  
-      div.appendChild(img)
+      const icons = createIcons()
+      console.log(icons)
+      // const fire = document.createElement('img')
+      // const grass = document.createElement('img')
+      // const water = document.createElement('img')
+      // const lightning = document.createElement('img')
+      // const colorless = document.createElement('img')
+      // const psychic = document.createElement('img')
+      // const fighting = document.createElement('img')
+      // const fairy = document.createElement('img')
+      // const dragon = document.createElement('img')
+      // const metal = document.createElement('img')
+      // const darkness = document.createElement('img')
+      // fire.src = 'assets/fire.png'
+      // grass.src = 'assets/grass.png'
+      // water.src = 'assets/water.png'
+      // lightning.src = 'assets/electric.png'
+      // colorless.src = 'assets/colorless.png'
+      // psychic.src = 'assets/psychic.png'
+      // fighting.src = 'assets/fighting.png'
+      // fairy.src = 'assets/fairy.png'
+      // dragon.src = 'assets/dragon.png'
+      // metal.src = 'assets/metal.png'
+      // darkness.src = 'assets/dark.png'
+      // div.appendChild(img)
     }
     div.appendChild(attackInfo)
   }
@@ -321,10 +337,40 @@ function displayLink(card) {
   }
 }
 
-// function replaceAttackIcon() {
-//   // const fire = document.createElement('img')
-//   // fire.src = 'assets/fire.png'
-//   const attack = document.querySelectorAll('.attack')
-//   const cost = attack.innerHTML.replaceAll(',', ', ')
-//   document.querySelector('.attack').innerHTML = cost
-// }
+function createIcons() {
+  const fire = document.createElement('img')
+  const grass = document.createElement('img')
+  const water = document.createElement('img')
+  const lightning = document.createElement('img')
+  const colorless = document.createElement('img')
+  const psychic = document.createElement('img')
+  const fighting = document.createElement('img')
+  const fairy = document.createElement('img')
+  const dragon = document.createElement('img')
+  const metal = document.createElement('img')
+  const darkness = document.createElement('img')
+  fire.src = 'assets/fire.png'
+  grass.src = 'assets/grass.png'
+  water.src = 'assets/water.png'
+  lightning.src = 'assets/electric.png'
+  colorless.src = 'assets/colorless.png'
+  psychic.src = 'assets/psychic.png'
+  fighting.src = 'assets/fighting.png'
+  fairy.src = 'assets/fairy.png'
+  dragon.src = 'assets/dragon.png'
+  metal.src = 'assets/metal.png'
+  darkness.src = 'assets/dark.png'
+  return {
+    flame: fire,
+    leaf: grass,
+    drop: water,
+    bolt: lightning,
+    star: colorless,
+    eye: psychic,
+    fist: fighting,
+    wings: fairy,
+    lizard: dragon,
+    tri: metal,
+    dark: darkness
+  }
+}
