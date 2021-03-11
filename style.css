@@ -117,12 +117,14 @@ form {
   display: flex;
   flex: 100px;
   height: 50px;
+  align-items: center;
 }
 
 .resist {
   display: flex;
   flex: 100px;
   height: 50px;
+  align-items: center;
 }
 
 @media screen and (max-width: 800px) {
