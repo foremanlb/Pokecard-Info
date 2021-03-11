@@ -14,6 +14,7 @@ async function getPokemon(name) {
         'X-Api-Key': `${code}`
       }
       })
+    console.log(poke.data.data)
     generateCards(poke.data.data)
   } catch (error) {
     alert('Pokemon Card does not exist.')
@@ -178,10 +179,16 @@ function displayName(card) {
 }
 
 function displaySet(card) {
+  const newDiv = document.createElement('div')
   const set = document.createElement('p')
+  const symbol = document.createElement('img')
+  newDiv.setAttribute('class', 'setSymbol')
+  symbol.src = `${card.set.images.symbol}`
   set.innerText = `Set: ${card.set.name}`
   const div = document.querySelector(`#${card.id}-2`)
-  div.appendChild(set)
+  div.appendChild(newDiv)
+  newDiv.appendChild(set)
+  newDiv.appendChild(symbol)
 }
 
 function displayFlavor(card) {
@@ -464,6 +471,8 @@ function displayLink(card) {
     linkImage.setAttribute('class', 'link')
     hyperlink.setAttribute('href', `${card.tcgplayer.url}`)
     hyperlink.setAttribute('class', 'link')
+    hyperlink.setAttribute('rel', 'noreferrer noopener')
+    hyperlink.setAttribute('target', '_blank')
     hyperlink.innerText = 'Purchase Here:'
     const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(link)

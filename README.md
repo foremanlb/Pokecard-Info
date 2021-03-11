@@ -236,3 +236,5 @@ Changed header from red background to background image to make more appealing.
 Added more classes and id's to items as they were generated to assist styling choices.
 
 Added animated buttons to create more aesthetics.
+
+Made link open in new tab so as to not lose place on page.

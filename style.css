@@ -189,6 +189,11 @@ input:focus::placeholder {
   align-items: center;
 }
 
+.setSymbol {
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (max-width: 800px) {
   nav {
     width: 100vw;
@@ -214,7 +219,7 @@ input:focus::placeholder {
   form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 30px;
+    grid-template-rows: 6vh;
   }
 
   main {
@@ -225,34 +230,34 @@ input:focus::placeholder {
     background-image: none;
   }
   #pokemon {
-    height: 30px;
-    width: 80px;
+    height: 6vh;
+    width: 25vw;
     font-family: 'Noto Serif', serif;
     font-size:12px;
   }
   
   #set {
-    height: 30px;
-    width: 80px;
+    height: 6vh;
+    width: 25vw;
     font-family: 'Noto Serif', serif;
   }
   
   #search {
-    height: 30px;
-    width: 80px;
+    height: 6vh;
+    width: 25vw;
     font-family: 'Noto Serif', serif;
     text-align: center;
   }
   
   #submit {
-    height: 30px;
-    width: 80px;
+    height: 6vh;
+    width: 25vw;
     font-family: 'Noto Serif', serif;
   }
   
   #setList {
-    height: 30px;
-    width: 80px;
+    height: 6vh;
+    width: 25vw;
     font-family: 'Noto Serif', serif;
     font-size: 11px;
   }
