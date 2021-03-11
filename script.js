@@ -283,7 +283,6 @@ function displayWeakness(card) {
       const value = document.createElement('p')
       weakness.innerText = `Weakness:`
       value.innerText = `${weak[i].value}`
-      // const div = document.querySelector(`#${card.id}-2`)
       weakDiv.appendChild(weakness)
       const icons = createIcons()
       switch (weak[i].type) {
@@ -326,64 +325,66 @@ function displayWeakness(card) {
   } else {
     const weakness = document.createElement('p')
     weakness.innerText = `Weakness: None`
-    weaKDiv.appendChild(weakness)
+    weakDiv.appendChild(weakness)
   }
 }
 
 
 function displayResistance(card) {
   const resist = card.resistances
+  const resistDiv = document.createElement('div')
+  resistDiv.setAttribute('class', 'resist')
+  const div = document.querySelector(`#${card.id}-2`)
+  div.appendChild(resistDiv)
   if (resist != undefined) {
     for (let i = 0; i < resist.length; i++) {
       const strong = document.createElement('p')
       const value = document.createElement('p')
       strong.innerText = `Resistance:`
       value.innerText = `${ resist[i].value }`
-      const div = document.querySelector(`#${card.id}-2`)
-      div.appendChild(strong)
+      resistDiv.appendChild(strong)
       const icons = createIcons()
       switch (resist[i].type) {
         case 'Fire':
-          div.appendChild(icons.flame)
+          resistDiv.appendChild(icons.flame)
           break;
         case 'Grass':
-          div.appendChild(icons.leaf)
+          resistDiv.appendChild(icons.leaf)
           break;
         case 'Water':
-          div.appendChild(icons.drop)
+          resistDiv.appendChild(icons.drop)
           break;
         case 'Lightning':
-          div.appendChild(icons.bolt)
+          resistDiv.appendChild(icons.bolt)
           break;
         case 'Colorless':
-          div.appendChild(icons.star)
+          resistDiv.appendChild(icons.star)
           break;
         case 'Psychic':
-          div.appendChild(icons.eye)
+          resistDiv.appendChild(icons.eye)
           break;
         case 'Fighting':
-          div.appendChild(icons.fist)
+          resistDiv.appendChild(icons.fist)
           break;
         case 'Fairy':
-          div.appendChild(icons.wings)
+          resistDiv.appendChild(icons.wings)
           break;
         case 'Dragon':
-          div.appendChild(icons.lizard)
+          resistDiv.appendChild(icons.lizard)
           break;
         case 'Metal':
-          div.appendChild(icons.tri)
+          resistDiv.appendChild(icons.tri)
           break;
         case 'Darkness':
-          div.appendChild(icons.dark)
+          resistDiv.appendChild(icons.dark)
           break;
       }
-      div.appendChild(value)
+      resistDiv.appendChild(value)
     }
   } else {
     const strong = document.createElement('p')
     strong.innerText = `Resistance: None`
-    const div = document.querySelector(`#${card.id}-2`)
-    div.appendChild(strong)
+    resistDiv.appendChild(strong)
   }
 }
 
