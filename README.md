@@ -154,15 +154,15 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| HTML | M | 3hrs|  |  |
-| Working with first API | H | 3hrs|  | |
-| Working with second API | H | 3hrs| |  |
-|JS Code for API integration| H | 4hrs| | |
-|JS Code for website interactions | H | 5hrs | | |
-|CSS Styling | M | 6hrs | | |
-|Debugging/Optimization | M | 6hrs | | |
-|Refactoring | L | 4hrs | | |
-|Total | | 34hrs | | |
+| HTML | M | 3hrs| 30 min | 30 min |
+| Working with first API | H | 3hrs| 1hrs | 1hrs |
+| Working with second API | H | 3hrs| 1hrs | 1hrs |
+|JS Code for API integration| H | 4hrs| 10hrs | 10hrs |
+|JS Code for website interactions | H | 5hrs | 3 hrs | 3hrs |
+|CSS Styling | M | 6hrs | 10hrs | 10hrs |
+|Debugging/Optimization | M | 6hrs | 5hrs | 5hrs |
+|Refactoring | L | 4hrs | 2hrs | 2hrs |
+|Total | | 34hrs | 32.5hrs | 32.5hrs |
 
 ## Code Snippet
 
