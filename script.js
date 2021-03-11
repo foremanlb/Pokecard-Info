@@ -233,30 +233,41 @@ function displayAttacks(card) {
     div.appendChild(attackCost)
     for (let j = 0; j < attacks[i].cost.length; j++) {
       const icons = createIcons()
-      console.log(icons)
-      // const fire = document.createElement('img')
-      // const grass = document.createElement('img')
-      // const water = document.createElement('img')
-      // const lightning = document.createElement('img')
-      // const colorless = document.createElement('img')
-      // const psychic = document.createElement('img')
-      // const fighting = document.createElement('img')
-      // const fairy = document.createElement('img')
-      // const dragon = document.createElement('img')
-      // const metal = document.createElement('img')
-      // const darkness = document.createElement('img')
-      // fire.src = 'assets/fire.png'
-      // grass.src = 'assets/grass.png'
-      // water.src = 'assets/water.png'
-      // lightning.src = 'assets/electric.png'
-      // colorless.src = 'assets/colorless.png'
-      // psychic.src = 'assets/psychic.png'
-      // fighting.src = 'assets/fighting.png'
-      // fairy.src = 'assets/fairy.png'
-      // dragon.src = 'assets/dragon.png'
-      // metal.src = 'assets/metal.png'
-      // darkness.src = 'assets/dark.png'
-      // div.appendChild(img)
+      switch (attacks[i].cost[j]) {
+        case 'Fire':
+          div.appendChild(icons.flame)
+          break;
+        case 'Grass':
+          div.appendChild(icons.leaf)
+          break;
+        case 'Water':
+          div.appendChild(icons.drop)
+          break;
+        case 'Lightning':
+          div.appendChild(icons.bolt)
+          break;
+        case 'Colorless':
+          div.appendChild(icons.star)
+          break;
+        case 'Psychic':
+          div.appendChild(icons.eye)
+          break;
+        case 'Fighting':
+          div.appendChild(icons.fist)
+          break;
+        case 'Fairy':
+          div.appendChild(icons.wings)
+          break;
+        case 'Dragon':
+          div.appendChild(icons.lizard)
+          break;
+        case 'Metal':
+          div.appendChild(icons.tri)
+          break;
+        case 'Darkness':
+          div.appendChild(icons.dark)
+          break;
+      }
     }
     div.appendChild(attackInfo)
   }
@@ -267,9 +278,48 @@ function displayWeakness(card) {
   if (weak != undefined) {
     for (let i = 0; i < weak.length; i++) {
       const weakness = document.createElement('p')
-      weakness.innerText = `Weakness: ${weak[i].type} ${weak[i].value}`
+      const value = document.createElement('p')
+      weakness.innerText = `Weakness:`
+      value.innerText = `${weak[i].value}`
       const div = document.querySelector(`#${card.id}-2`)
       div.appendChild(weakness)
+      const icons = createIcons()
+      switch (weak[i].type) {
+        case 'Fire':
+          div.appendChild(icons.flame)
+          break;
+        case 'Grass':
+          div.appendChild(icons.leaf)
+          break;
+        case 'Water':
+          div.appendChild(icons.drop)
+          break;
+        case 'Lightning':
+          div.appendChild(icons.bolt)
+          break;
+        case 'Colorless':
+          div.appendChild(icons.star)
+          break;
+        case 'Psychic':
+          div.appendChild(icons.eye)
+          break;
+        case 'Fighting':
+          div.appendChild(icons.fist)
+          break;
+        case 'Fairy':
+          div.appendChild(icons.wings)
+          break;
+        case 'Dragon':
+          div.appendChild(icons.lizard)
+          break;
+        case 'Metal':
+          div.appendChild(icons.tri)
+          break;
+        case 'Darkness':
+          div.appendChild(icons.dark)
+          break;
+      }
+      div.appendChild(value)
     }
   } else {
     const weakness = document.createElement('p')
@@ -279,14 +329,54 @@ function displayWeakness(card) {
   }
 }
 
+
 function displayResistance(card) {
   const resist = card.resistances
   if (resist != undefined) {
     for (let i = 0; i < resist.length; i++) {
       const strong = document.createElement('p')
-      strong.innerText = `Resistance: ${resist[i].type} ${resist[i].value}`
+      const value = document.createElement('p')
+      strong.innerText = `Resistance:`
+      value.innerText = `${ resist[i].value }`
       const div = document.querySelector(`#${card.id}-2`)
       div.appendChild(strong)
+      const icons = createIcons()
+      switch (resist[i].type) {
+        case 'Fire':
+          div.appendChild(icons.flame)
+          break;
+        case 'Grass':
+          div.appendChild(icons.leaf)
+          break;
+        case 'Water':
+          div.appendChild(icons.drop)
+          break;
+        case 'Lightning':
+          div.appendChild(icons.bolt)
+          break;
+        case 'Colorless':
+          div.appendChild(icons.star)
+          break;
+        case 'Psychic':
+          div.appendChild(icons.eye)
+          break;
+        case 'Fighting':
+          div.appendChild(icons.fist)
+          break;
+        case 'Fairy':
+          div.appendChild(icons.wings)
+          break;
+        case 'Dragon':
+          div.appendChild(icons.lizard)
+          break;
+        case 'Metal':
+          div.appendChild(icons.tri)
+          break;
+        case 'Darkness':
+          div.appendChild(icons.dark)
+          break;
+      }
+      div.appendChild(value)
     }
   } else {
     const strong = document.createElement('p')
@@ -299,10 +389,48 @@ function displayResistance(card) {
 function displayRetreat(card) {
   const retreat = card.retreatCost
   if (retreat != undefined) {
-      const run = document.createElement('p')
-      run.innerText = `Retreat Cost: ${retreat}`
-      const div = document.querySelector(`#${card.id}-2`)
-      div.appendChild(run)
+    const run = document.createElement('p')
+    run.innerText = `Retreat Cost:`
+    const div = document.querySelector(`#${card.id}-2`)
+    div.appendChild(run)
+    for (let i = 0; i < retreat.length; i++) {
+      const icons = createIcons()
+      switch (retreat[i]) {
+        case 'Fire':
+          div.appendChild(icons.flame)
+          break;
+        case 'Grass':
+          div.appendChild(icons.leaf)
+          break;
+        case 'Water':
+          div.appendChild(icons.drop)
+          break;
+        case 'Lightning':
+          div.appendChild(icons.bolt)
+          break;
+        case 'Colorless':
+          div.appendChild(icons.star)
+          break;
+        case 'Psychic':
+          div.appendChild(icons.eye)
+          break;
+        case 'Fighting':
+          div.appendChild(icons.fist)
+          break;
+        case 'Fairy':
+          div.appendChild(icons.wings)
+          break;
+        case 'Dragon':
+          div.appendChild(icons.lizard)
+          break;
+        case 'Metal':
+          div.appendChild(icons.tri)
+          break;
+        case 'Darkness':
+          div.appendChild(icons.dark)
+          break;
+      }
+    }
   } else {
     const run = document.createElement('p')
     run.innerText = `Retreat Cost: None`
