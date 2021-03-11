@@ -168,7 +168,7 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 This code was used to replace plain text with images of the types to more resemble how it is displayed on the card. 
 
-```json
+```js
 function displayAttacks(card) {
   const attacks = card.attacks
   if (attacks != undefined)
