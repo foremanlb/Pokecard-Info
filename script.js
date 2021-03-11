@@ -28,7 +28,6 @@ async function getPokemonBySet(name) {
         'X-Api-Key': `${code}`
       }
       })
-    console.log(poke.data.data)
     generateCards(poke.data.data)
   } catch (error) {
     console.log(error.message)
@@ -227,7 +226,6 @@ function displayAttacks(card) {
     attackCost.innerHTML = 'Cost:'
     attackInfo.innerText = `Damage: ${attacks[i].damage}
     Info: ${attacks[i].text}`
-    console.log(attacks[i].cost)
     const div = document.querySelector(`#${card.id}-2`)
     div.appendChild(attackName)
     div.appendChild(attackCost)
@@ -275,57 +273,60 @@ function displayAttacks(card) {
 
 function displayWeakness(card) {
   const weak = card.weaknesses
+  const weakDiv = document.createElement('div')
+  weakDiv.setAttribute('class', 'weaknesses')
+  const div = document.querySelector(`#${card.id}-2`)
+  div.appendChild(weakDiv)
   if (weak != undefined) {
     for (let i = 0; i < weak.length; i++) {
       const weakness = document.createElement('p')
       const value = document.createElement('p')
       weakness.innerText = `Weakness:`
       value.innerText = `${weak[i].value}`
-      const div = document.querySelector(`#${card.id}-2`)
-      div.appendChild(weakness)
+      // const div = document.querySelector(`#${card.id}-2`)
+      weakDiv.appendChild(weakness)
       const icons = createIcons()
       switch (weak[i].type) {
         case 'Fire':
-          div.appendChild(icons.flame)
+          weakDiv.appendChild(icons.flame)
           break;
         case 'Grass':
-          div.appendChild(icons.leaf)
+          weakDiv.appendChild(icons.leaf)
           break;
         case 'Water':
-          div.appendChild(icons.drop)
+          weakDiv.appendChild(icons.drop)
           break;
         case 'Lightning':
-          div.appendChild(icons.bolt)
+          weakDiv.appendChild(icons.bolt)
           break;
         case 'Colorless':
-          div.appendChild(icons.star)
+          weakDiv.appendChild(icons.star)
           break;
         case 'Psychic':
-          div.appendChild(icons.eye)
+          weakDiv.appendChild(icons.eye)
           break;
         case 'Fighting':
-          div.appendChild(icons.fist)
+          weakDiv.appendChild(icons.fist)
           break;
         case 'Fairy':
-          div.appendChild(icons.wings)
+          weakDiv.appendChild(icons.wings)
           break;
         case 'Dragon':
-          div.appendChild(icons.lizard)
+          weakDiv.appendChild(icons.lizard)
           break;
         case 'Metal':
-          div.appendChild(icons.tri)
+          weakDiv.appendChild(icons.tri)
           break;
         case 'Darkness':
-          div.appendChild(icons.dark)
+          weakDiv.appendChild(icons.dark)
           break;
       }
-      div.appendChild(value)
+      weakDiv.appendChild(value)
     }
   } else {
     const weakness = document.createElement('p')
     weakness.innerText = `Weakness: None`
-    const div = document.querySelector(`#${card.id}-2`)
-    div.appendChild(weakness)
+    weaKDiv.appendChild(weakness)
   }
 }
 
