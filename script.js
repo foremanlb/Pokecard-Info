@@ -14,7 +14,6 @@ async function getPokemon(name) {
         'X-Api-Key': `${code}`
       }
       })
-    console.log(poke.data.data)
     generateCards(poke.data.data)
   } catch (error) {
     alert('Pokemon Card does not exist.')
