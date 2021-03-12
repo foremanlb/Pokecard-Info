@@ -8,6 +8,8 @@ The Poke Card Database
 
 The Poke Card Database will allow users to look up cards based on their favorite pokemon or by specific sets.  It will display the cards image along with brief details regarding the cards, such as release date and rarity.  It will also include a link to purchase each card to help assist players with adding their favorites to their collections.  Condition can't be guaranteed as some of these cards would be over 20 years old at this point.  It is designed to assist new players/collectors with familiarizing themselves with the different cards and sets that are in existence.  It is my hope to include a collection side to the site as well, to help players with cataloging their cards, as a great many try to take care not to handle them too much.
 
+### [Pokecard Database](https://pages.git.generalassemb.ly/craignavarro/PokeCard-Info/)
+
 ## API and Data Sample
 I will be using the Pokemon TCG Developers API.  https://docs.pokemontcg.io/
 
